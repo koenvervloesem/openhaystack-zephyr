@@ -49,7 +49,7 @@ A sample debug configuration to read logs from the USB UART is also provided. Yo
 
 .. code-block:: shell
 
-  west build -b $BOARD -s app -- -DOVERLAY_CONFIG=debug-usb-uart.conf
+  west build -p auto -b $BOARD -s app -- -DOVERLAY_CONFIG=debug-usb-uart.conf
 
 This only works with boards that support this, such as Nordic Semiconductor's nRF52840 Dongle.
 
