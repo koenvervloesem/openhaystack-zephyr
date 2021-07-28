@@ -1,0 +1,11 @@
+manifest:
+  self:
+    path: openhaystack-zephyr
+  remotes:
+    - name: zephyrproject-rtos
+      url-base: https://github.com/zephyrproject-rtos
+  projects:
+    - name: zephyr
+      remote: zephyrproject-rtos
+      revision: v2.6.0
+      import: true
