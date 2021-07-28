@@ -19,6 +19,7 @@ Requirements
 
 * A Bluetooth Low Energy device, supported by Zephyr
 * A `Zephyr development environment <https://docs.zephyrproject.org/latest/getting_started/index.html>`_
+* OpenHaystack's macOS application to view the location of your device
 
 Initialization
 **************
