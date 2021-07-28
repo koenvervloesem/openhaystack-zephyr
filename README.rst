@@ -66,7 +66,7 @@ You need to specify a public key in the firmware image. You can either:
 Flash
 *****
 
-How to flash the image to a device depends on the device and the connected bootloader. For many devices you can run:
+How to flash the image to a device depends on the device and its bootloader. For many devices you can run:
 
 .. code-block:: shell
 
