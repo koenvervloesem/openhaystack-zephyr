@@ -12,7 +12,7 @@ Disclaimer
 
 The firmware is just a proof-of-concept and currently only implements advertising a single static key. This means that devices running this firmware are trackable by other devices in proximity.
 
-There is also no power management yet. So if you're running this firmware on a battery-powered device, it won't be as efficient as possible. If you want to improve this, all patches are welcome.
+There is also no power management yet. So if you're running this firmware on a battery-powered device, it won't be as energy-efficient as possible. If you want to improve this, all patches are welcome.
 
 Requirements
 ************
@@ -60,8 +60,8 @@ Use your own key
 
 You need to specify a public key in the firmware image. You can either:
 
-* directly do so in the source (the char array ``public_key`` in ``main.c``) and then build the firmware
-* patch the default public key ``OFFLINEFINDINGPUBLICKEYHERE!`` in the bin file to your own key and save the resulting firmware image (see the script ``openhaypatch.sh`` for a way to do this)
+* directly do so in the source (the char array ``public_key`` in `main.c <https://github.com/koenvervloesem/openhaystack-zephyr/blob/main/app/src/main.c>`_) and then build the firmware
+* patch the default public key ``OFFLINEFINDINGPUBLICKEYHERE!`` in the bin file to your own key and save the resulting firmware image (see the script `openhaypatch.sh <https://github.com/koenvervloesem/openhaystack-zephyr/blob/main/openhaypatch.sh>`_ for a way to do this)
 
 Flash
 *****
@@ -74,7 +74,7 @@ How to flash the image to a device depends on the device and the connected bootl
 
 Refer to your `board's documentation <https://docs.zephyrproject.org/latest/boards/index.html>`_ for alternative flash instructions if your board doesn't support the ``flash`` target.
 
-For the `nRF52840 Dongle <https://docs.zephyrproject.org/latest/boards/arm/nrf52840dongle_nrf52840/doc/index.html>`_ with the built-in bootloader, press the reset button and then run:
+For the nRF52840 Dongle with the built-in bootloader, run:
 
 .. code-block:: shell
 
@@ -82,7 +82,7 @@ For the `nRF52840 Dongle <https://docs.zephyrproject.org/latest/boards/arm/nrf52
           --application build/zephyr/zephyr.hex \
           --application-version 1 openhaystack.zip
 
-This packages the application in the file ``openhaystack.zip``. Now flash it onto the board with:
+This packages the application in the file ``openhaystack.zip``. Now press the reset button and flash the package onto the board with:
 
 .. code-block:: shell
 
@@ -112,7 +112,7 @@ Other Bluetooth Low Energy devices supported by Zephyr should work as well. Plea
 Using OpenHaystack as a module
 ******************************
 
-The base code is written as a Zephyr module, in the directory ``modules/openhaystack``. You can reuse this in your own Zephyr applications. The code of the example application using this module can be found in the directory ``app``.
+The base code is written as a Zephyr module, in the directory `modules/openhaystack <https://github.com/koenvervloesem/openhaystack-zephyr/tree/main/modules/openhaystack>`_. You can reuse this in your own Zephyr applications. The code of the example application using this module can be found in the directory `app <https://github.com/koenvervloesem/openhaystack-zephyr/tree/main/app>`_.
 
 Acknowledgments
 ***************
