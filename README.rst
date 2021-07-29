@@ -113,7 +113,10 @@ Other Bluetooth Low Energy devices supported by Zephyr should work as well. Plea
 Using OpenHaystack as a module
 ******************************
 
-The base code is written as a Zephyr module, in the directory `modules/openhaystack <https://github.com/koenvervloesem/openhaystack-zephyr/tree/main/modules/openhaystack>`_. You can reuse this in your own Zephyr applications. The code of the example application using this module can be found in the directory `app <https://github.com/koenvervloesem/openhaystack-zephyr/tree/main/app>`_.
+The base code is written as a Zephyr module, in the directory `modules/openhaystack <https://github.com/koenvervloesem/openhaystack-zephyr/tree/main/modules/openhaystack>`_. You can reuse this in your own Zephyr applications. For examples of how you do this, take a look at:
+
+* the application of this repository in the directory `app <https://github.com/koenvervloesem/openhaystack-zephyr/tree/main/app>`_
+* the `Send My Sensor <https://github.com/koenvervloesem/send-my-sensor>`_ project, which uses the OpenHaystack module to upload sensor data via Apple's Find My network.
 
 Acknowledgments
 ***************
