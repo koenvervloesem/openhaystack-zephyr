@@ -46,23 +46,15 @@ To build the firmware, run:
 
 Replace ``$BOARD`` by your target board.
 
-A sample debug configuration to read logs from the USB UART is also provided. You can apply it by running:
-
-.. code-block:: shell
-
-  west build -p auto -b $BOARD -s app -- -DOVERLAY_CONFIG=debug-usb-uart.conf
-
-This only works with boards that support this, such as Nordic Semiconductor's nRF52840 Dongle.
-
 Once you have built the application, the firmware image is available in ``build/zephyr``.
 
 Use your own key
 ****************
 
-You need to specify a public key in the firmware image. You can either:
+You need to specify a public key in the firmware image. There are two ways to do this:
 
-* directly do so in the source (the char array ``public_key`` in `main.c <https://github.com/koenvervloesem/openhaystack-zephyr/blob/main/app/src/main.c>`_) and then build the firmware
-* patch the default public key ``OFFLINEFINDINGPUBLICKEYHERE!`` in the bin file to your own key and save the resulting firmware image (see the script `openhaypatch.sh <https://github.com/koenvervloesem/openhaystack-zephyr/blob/main/openhaypatch.sh>`_ for a way to do this)
+* Make the change directly in the source (the char array ``public_key`` in `main.c <https://github.com/koenvervloesem/openhaystack-zephyr/blob/main/app/src/main.c>`_) and then build the firmware. You have to initialize the public key like this: ``static char public_key[28] = {0x61, 0xc4, 0xc2, 0x55, ...}`` with all bytes of the key instead of the ellipsis. Note that this is the raw key, not the Base64 encoded key.
+* Patch the default public key ``OFFLINEFINDINGPUBLICKEYHERE!`` in the bin file (``build/zephyr/zephyr.bin``) to your own key and save the resulting firmware image (see the script `openhaypatch.sh <https://github.com/koenvervloesem/openhaystack-zephyr/blob/main/openhaypatch.sh>`_ for a way to do this).
 
 Flash
 *****
@@ -117,6 +109,19 @@ The base code is written as a Zephyr module, in the directory `modules/openhayst
 
 * the application of this repository in the directory `app <https://github.com/koenvervloesem/openhaystack-zephyr/tree/main/app>`_
 * the `Send My Sensor <https://github.com/koenvervloesem/send-my-sensor>`_ project, which uses the OpenHaystack module to upload sensor data via Apple's Find My network.
+
+Debugging
+*********
+
+A sample debug configuration to read logs from the USB UART is also provided. You can apply it by running:
+
+.. code-block:: shell
+
+  west build -p auto -b $BOARD -s app -- -DOVERLAY_CONFIG=debug-usb-uart.conf
+
+This only works with boards that support this, such as Nordic Semiconductor's nRF52840 Dongle.
+
+For the UART logs: run ``ls /dev/tty*`` (Linux) or ``ls /dev/cu.*`` (macOS) in a terminal window, connect your board and run the command again to check which port appears. On Linux, this will probably be /dev/ttyACM0. Then run ``screen /dev/ttyACM0 115200`` to connect to port /dev/ttyACM0 with a speed of 115200 bits per second.
 
 Acknowledgments
 ***************
