@@ -123,6 +123,11 @@ This only works with boards that support this, such as Nordic Semiconductor's nR
 
 For the UART logs: run ``ls /dev/tty*`` (Linux) or ``ls /dev/cu.*`` (macOS) in a terminal window, connect your board and run the command again to check which port appears. On Linux, this will probably be /dev/ttyACM0. Then run ``screen /dev/ttyACM0 115200`` to connect to port /dev/ttyACM0 with a speed of 115200 bits per second.
 
+Learn more about Bluetooth Low Energy development
+*************************************************
+
+If you want to learn more about Bluetooth Low Energy development, read my book `Develop your own Bluetooth Low Energy Applications for Raspberry Pi, ESP32 and nRF52 with Python, Arduino and Zephyr <https://koen.vervloesem.eu/books/develop-your-own-bluetooth-low-energy-applications/>`_ and the accompanying GitHub repository `koenvervloesem/bluetooth-low-energy-applications <https://github.com/koenvervloesem/bluetooth-low-energy-applications>`_.
+
 Acknowledgments
 ***************
 
